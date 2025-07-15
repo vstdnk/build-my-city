@@ -23,6 +23,92 @@
         <div id="unity-build-title">BuildMyCity</div>
       </div>
     </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Telegram WebApp интеграция -->
+    <script>
+      // Определяем iOS устройства
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      
+      // Инициализация Telegram WebApp API
+      window.addEventListener('DOMContentLoaded', function() {
+        var tg = null;
+        if (window.Telegram && window.Telegram.WebApp) {
+          tg = window.Telegram.WebApp;
+
+          // Отключаем свайп вниз для закрытия приложения
+          try {
+            var eventData = JSON.stringify({ allow_vertical_swipe: false });
+            if (window.TelegramWebviewProxy) {
+              window.TelegramWebviewProxy.postEvent('web_app_setup_swipe_behavior', eventData);
+            } else {
+              window.parent.postMessage(JSON.stringify({
+                eventType: 'web_app_setup_swipe_behavior',
+                eventData: { allow_vertical_swipe: false }
+              }), 'https://web.telegram.org');
+            }
+          } catch (e) {}
+
+          // Скрываем BackButton
+          try {
+            if (tg.BackButton) tg.BackButton.hide();
+          } catch (e) {}
+
+          // Блокировка ориентации экрана в портретном режиме
+          try {
+            var orientationData = JSON.stringify({ locked: true });
+            if (window.TelegramWebviewProxy) {
+              window.TelegramWebviewProxy.postEvent('web_app_toggle_orientation_lock', orientationData);
+            } else {
+              window.parent.postMessage(JSON.stringify({
+                eventType: 'web_app_toggle_orientation_lock',
+                eventData: { locked: true }
+              }), 'https://web.telegram.org');
+            }
+          } catch (e) {}
+
+          // Применяем тему Telegram
+          if (tg.colorScheme === 'dark') {
+            document.documentElement.classList.add('dark');
+          }
+          if (tg.themeParams) {
+            var params = tg.themeParams;
+            if (params.bg_color) document.documentElement.style.setProperty('--tg-theme-bg-color', params.bg_color);
+            if (params.text_color) document.documentElement.style.setProperty('--tg-theme-text-color', params.text_color);
+            if (params.hint_color) document.documentElement.style.setProperty('--tg-theme-hint-color', params.hint_color);
+            if (params.link_color) document.documentElement.style.setProperty('--tg-theme-link-color', params.link_color);
+            if (params.button_color) document.documentElement.style.setProperty('--tg-theme-button-color', params.button_color);
+            if (params.button_text_color) document.documentElement.style.setProperty('--tg-theme-button-text-color', params.button_text_color);
+            if (params.secondary_bg_color) document.documentElement.style.setProperty('--tg-theme-secondary-bg-color', params.secondary_bg_color);
+          }
+
+          // Функция активации полноэкранного режима
+          var toggleFullScreen = function() {
+            try {
+              if (tg.expand) tg.expand();
+              if (tg.requestFullscreen) tg.requestFullscreen();
+              if (tg.setViewportHeight) tg.setViewportHeight(1.0);
+              // Устанавливаем viewport
+              var viewportMeta = document.querySelector('meta[name="viewport"]');
+              if (viewportMeta) {
+                viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover');
+              }
+            } catch (e) {}
+          };
+
+          // Автоматически активируем fullscreen при загрузке
+          setTimeout(toggleFullScreen, isIOS ? 500 : 200);
+          if (isIOS) {
+            window.addEventListener('focus', function() { setTimeout(toggleFullScreen, 300); });
+            window.addEventListener('pageshow', function(event) { if (event.persisted) setTimeout(toggleFullScreen, 300); });
+          }
+
+          // Telegram WebApp ready
+          try {
+            tg.ready();
+          } catch (e) {}
+        }
+      });
+    </script>
     <script>
 
       var container = document.querySelector("#unity-container");
