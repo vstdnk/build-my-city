@@ -1,23 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 128">
-  <!-- Уютный домик: кремовые стены, черепичная крыша. Изометрия 2:1 -->
-  <g stroke="#7d4d28" stroke-width="1.6" stroke-linejoin="round">
-    <!-- стены -->
-    <polygon points="10,66 48,90 48,120 10,96" fill="#fff4de"/>
-    <polygon points="48,90 86,66 86,96 48,120" fill="#eddbb9"/>
-    <!-- крыша -->
-    <polygon points="2,64 48,92 48,30" fill="#f28d72"/>
-    <polygon points="48,92 94,64 48,30" fill="#d4604d"/>
-    <!-- труба -->
-    <polygon points="66,44 72,47 72,57 66,54" fill="#e0d1b4"/>
-    <polygon points="72,47 78,44 78,54 72,57" fill="#c7b391"/>
-    <polygon points="66,44 72,41 78,44 72,47" fill="#f2e6cf"/>
-    <!-- дверь -->
-    <polygon points="20,80 32,87 32,108 20,101" fill="#a8663a"/>
-    <!-- окно -->
-    <polygon points="58,83 70,76 70,89 58,96" fill="#bfe6f7"/>
-  </g>
-  <!-- цоколь и блик на окне -->
-  <polygon points="10,90 48,114 48,120 10,96" fill="#d9c39c" opacity="0.7"/>
-  <polygon points="48,114 86,90 86,96 48,120" fill="#c2a87f" opacity="0.7"/>
-  <polygon points="60,85 64,82.5 64,88 60,90.5" fill="#ffffff" opacity="0.75"/>
+  <!-- стены -->
+  <polygon points="8,102 48,122 48,80 8,60" fill="#3fa9dc"/>
+  <polygon points="48,122 88,102 88,60 48,80" fill="#2b7fae"/>
+  <!-- плита крыши -->
+  <polygon points="48,40 88,60 48,80 8,60" fill="#e8685c"/>
+  <!-- мансарда -->
+  <polygon points="26,60 48,71 48,55 26,44" fill="#ef6e63"/>
+  <polygon points="48,71 70,60 70,44 48,55" fill="#d14b41"/>
+  <polygon points="48,33 70,44 48,55 26,44" fill="#f2887e"/>
+  <!-- окна -->
+  <polygon points="54,88 64,83 64,95 54,100" fill="#dff3ff"/>
+  <polygon points="70,80 80,75 80,87 70,92" fill="#dff3ff"/>
+  <polygon points="34,50 42,54 42,62 34,58" fill="#ffe9a8"/>
+  <!-- дверь -->
+  <polygon points="22,95 34,101 34,118 22,112" fill="#1d5d80"/>
 </svg>

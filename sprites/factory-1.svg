@@ -1,23 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 128">
-  <!-- Мастерская: тёплый корпус, покатая крыша, дымящая труба -->
-  <g stroke="#7d4d28" stroke-width="1.6" stroke-linejoin="round">
-    <!-- стены -->
-    <polygon points="10,68 48,92 48,120 10,96" fill="#e8a072"/>
-    <polygon points="48,92 86,68 86,96 48,120" fill="#cf7f52"/>
-    <!-- крыша -->
-    <polygon points="4,66 48,90 48,44 4,52" fill="#8fb4c9"/>
-    <polygon points="48,90 92,66 92,52 48,44" fill="#6d92aa"/>
-    <polygon points="4,52 48,36 92,52 48,44" fill="#a8ccdf"/>
-    <!-- труба -->
-    <polygon points="60,30 68,34 68,50 60,46" fill="#e2a97f"/>
-    <polygon points="68,34 76,30 76,46 68,50" fill="#c4864f"/>
-    <polygon points="60,30 68,26 76,30 68,34" fill="#f2cba6"/>
-    <!-- ворота -->
-    <polygon points="22,86 40,96 40,114 22,104" fill="#8a5a34"/>
-    <!-- окно -->
-    <polygon points="58,94 70,87 70,99 58,106" fill="#ffe6a8"/>
-  </g>
+  <!-- стены -->
+  <polygon points="8,102 48,122 48,84 8,64" fill="#c96054"/>
+  <polygon points="48,122 88,102 88,64 48,84" fill="#a84a40"/>
+  <!-- крыша -->
+  <polygon points="48,44 88,64 48,84 8,64" fill="#9aa6ba"/>
+  <!-- труба -->
+  <polygon points="20,56 28,60 28,38 20,34" fill="#5b6472"/>
+  <polygon points="28,60 36,56 36,34 28,38" fill="#49515c"/>
+  <polygon points="28,30 36,34 28,38 20,34" fill="#6d7787"/>
   <!-- дым -->
-  <circle cx="70" cy="18" r="7" fill="#ffffff" opacity="0.75"/>
-  <circle cx="60" cy="9" r="5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="28" cy="24" r="6" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="35" cy="15" r="4.5" fill="rgba(255,255,255,0.35)"/>
+  <!-- ворота -->
+  <polygon points="58,90 74,82 74,100 58,108" fill="#6e3630"/>
+  <polygon points="58,96 74,88 74,90 58,98" fill="#572924"/>
+  <!-- окна -->
+  <polygon points="16,80 26,85 26,93 16,88" fill="#ffd76e"/>
+  <polygon points="30,87 40,92 40,100 30,95" fill="#ffd76e"/>
 </svg>
